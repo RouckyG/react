@@ -2,6 +2,7 @@ import React from 'react';
 //import { Button} from './components/Button';
 import {Counter} from './components/Counter';
 import './App.css';
+import { Unfold } from './components/Unfold';
 
 /*
 function App() {
@@ -24,9 +25,14 @@ export class App extends React.Component {
 
   render() {
       return (
+        <div>
           <div className="App">
               <Counter />
           </div>
+          <div className="App">
+          <Unfold />
+        </div>
+      </div>
       );
   }
 }
