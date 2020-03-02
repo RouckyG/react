@@ -5,7 +5,7 @@ export class Unfold extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {display:true};
+        this.state = {display:false};
         this.clickHandle = this.clickHandle.bind(this);
     }
 
@@ -18,7 +18,10 @@ export class Unfold extends React.Component{
         const display =this.state.display;
         return (
             <div>
-            <Button name="btn2" label={this.state.display ? "+":"-"} onClick={this.clickHandle}></Button>
+            <Button  label={this.state.display ? "+":"-"} onClick={this.clickHandle}></Button>
+            {this.state.display &&
+                <p className="btn2">I</p>
+            }
             </div>
         );
     }

@@ -3,6 +3,7 @@ import React from 'react';
 import {Counter} from './components/Counter';
 import './App.css';
 import { Unfold } from './components/Unfold';
+import { Chronometer } from './components/Chronometer';
 
 /*
 function App() {
@@ -31,6 +32,9 @@ export class App extends React.Component {
           </div>
           <div className="App">
           <Unfold />
+        </div>
+        <div className="App">
+          <Chronometer />
         </div>
       </div>
       );
