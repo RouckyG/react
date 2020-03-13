@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css'
+import './App.css';
 import AlbumsList from './component/AlbumsList';
+
 
 const Albums = [
     {
@@ -37,7 +38,10 @@ const Albums = [
 
 function App()
 {
-  return(  <AlbumsList albums={Albums} />)
+  return(  
+  <AlbumsList albums={Albums} />
+
+)
 }
 
 export default App;
