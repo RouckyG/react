@@ -1,14 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export function AlbumItem(props){
+export class AlbumItem extends React.Component {
 
-return (<div className="album">
-<div className="titre">{props.data.nom}</div>
-<img src={"http://jonquet/albums/"+props.data.jaquette} />
-<div className="artiste">{props.data.artiste.nom}</div>
-<div className="annee">{props.data.année}</div>
-</div>)
+    render(){
+        console.log(this.props)
+        return (
+                <div className="album">
 
+                    <div>{this.props.data.nom}</div>
+                    <div>
+                        <img alt="img_album" src={"https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/"+this.props.data.jaquette}></img>
+                    </div>
+                    <div className="artiste">
+                        <div>
+                            {this.props.data.artiste.nom}
+                        </div>
+
+                        <div className="annee">
+                            {this.props.data.année}
+                        </div>
+                    </div>
+                </div>
+        );
+    }
+}
+
+//<AlbumsItem  className="albumList" album={albums[0]}/>
+
+
+AlbumItem.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default AlbumItem;

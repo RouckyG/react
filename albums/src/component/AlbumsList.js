@@ -1,19 +1,36 @@
-import React, { Component } from 'react'; 
+import React from 'react';
+import PropTypes from 'prop-types';
+import { AlbumItem } from './AlbumItem';
 
-import AlbumItem from './AlbumItem';
+export class AlbumsList extends React.Component {
 
 
-export function AlbumsList(props) {
+    render(){
+
+        let {albums} = this.props;
+        
+
+        let albumsItem = [];
+        for (let i in albums) {
+            albumsItem[i] = <AlbumItem key={albums[i].id} data={albums[i]} />
+        }
+        return (
+            <div className="albums">
+                {albumsItem}
+            </div>
+        );
+    }
 
 
-return (
-    props.albums.map(album => {
-        return <AlbumItem data={album} key={album.id} />
-    })
-)
 
-    
+
+   
+
 }
 
+AlbumsList.propTypes = {
+    albums: PropTypes.array.isRequired,
+  };
 
 export default AlbumsList;
+
