@@ -29,10 +29,30 @@ html, body {
 
 .pager {
     display: flex;
+    flex-direction: column;
+}
+
+.pager1, .pager2 {
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+.numeroprec{
+    justify-content: flex-end;
+}
+
+.numeroprec, .numerosuiv{
+    display : flex;
+    flex-direction: row;
+    flex : 1;
+}
+
 .numero {
-    padding : 20px;
+    margin: 20px;
+    padding: 5px 10px;
+    border: solid 1px rgb(77, 77, 255);
+    background-color: rgb(105, 193, 248);
+    border-width: 1px;
+    border-radius: 3px;
 }
