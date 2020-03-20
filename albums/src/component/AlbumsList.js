@@ -15,9 +15,7 @@ export class AlbumsList extends React.Component {
             albumsItem[i] = <AlbumItem key={albums[i].id} data={albums[i]} />
         }
         return (
-            <div className="albums">
                 {albumsItem}
-            </div>
         );
     }
 
