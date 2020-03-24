@@ -10,16 +10,18 @@ const caretDown = <FontAwesomeIcon icon={faArrowAltCircleDown} />
 
 export function SortButton({active, text, isAscending, disabled})
 {
-
+let rotation ="ascendant "
     if(isAscending) {
-        fetch("https://iut-info.univ-reims.fr/users/jonquet/albums/albums?triAscendant=true")
+    }
+    else {
+        rotation += "rotate"
     }
 
     return(
 
 
-        <div className="button">
-            <button className="tri">tri </button> <button className="ascendent">{caretDown}</button>
+        <div className="sortButton">
+            <div className="tri">{text}</div> <div className={rotation} >{caretDown}</div>
         </div>
     )
 }
