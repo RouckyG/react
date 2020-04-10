@@ -32,7 +32,7 @@ html, body {
     flex-direction: column;
 }
 
-.pager1, .pager2 {
+.pager1, .pager2 , .sorting{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -48,7 +48,7 @@ html, body {
     flex : 1;
 }
 
-.numero {
+.numero , .sortButton{
     margin: 20px;
     padding: 5px 10px;
     border: solid 1px rgb(77, 77, 255);
@@ -60,13 +60,21 @@ html, body {
 .sortButton{
     display : flex;
     flex-direction: row;
-    border-style: solid;
-    border-width: 1px;
-    background-color: lightgray;
-    width : 5%;
-    justify-content: space-around;
+    padding: 1px 10px;
 }
 
 .rotate{
    transform: rotate(180deg);
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(77, 77, 255);
+    background-color: rgb(105, 193, 248);
 }

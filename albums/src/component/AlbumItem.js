@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export class AlbumItem extends React.Component {
 
     render(){
-        console.log(this.props)
         return (
                 <div className="album">
 

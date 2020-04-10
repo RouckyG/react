@@ -35,7 +35,7 @@ render(props) {
         if(this.props.pagination.page < this.props.pagination.nombrePages-1)
             fin =<div className="numero" onClick={() => this.props.onPageChange(this.props.pagination.nombrePages-1)}>fin</div>;
         return (
-        <div className="pager">
+        <>
             <div className="pager1">
                 <div className="numeroprec">
                     {debut}
@@ -52,25 +52,10 @@ render(props) {
             <div className="pager2">
             <div className="numero" onClick={() => this.props.onPageChange(Math.floor(Math.random()*this.props.pagination.nombrePages))}>feeling lucky?</div>
             </div>
-        </div>
+        </>
 )
     }
 
 }
-Pager.propTypes = {
-    data: PropTypes.object.isRequired,
-};
-
 
 export default Pager;
-
-/*
-<div className="form">
-<div onClick={() => this.props.onPageChange(this.props.pagination.page -5)}> {doubleLeft}</div>
-<div onClick={() => this.props.onPageChange(this.props.pagination.page -1)}> {left}</div>
-<div onClick={() => this.props.onPageChange(this.props.pagination.page +1)}>{this.props.pagination.page +1}</div>
-<div onClick={() => this.props.onPageChange(this.props.pagination.page +1)}> {right}</div>
-<div onClick={() => this.props.onPageChange(this.props.pagination.page +5)}> {doubleRight}</div>
-</div>
-)
-*/
