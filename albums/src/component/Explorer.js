@@ -36,6 +36,12 @@ class Explorer extends React.Component {
         this.onPageChange(0)
     }
 
+    componentDidUpdate(prevprops, prevstate){
+        if (prevstate.toggled != this.state.toggled)
+        {
+            this.getAlbums(0)
+        }
+    }
     onChange(sortName, isAscending)
     {  
         
@@ -54,7 +60,7 @@ class Explorer extends React.Component {
     }
         this.setState({toggled : genresSelected});
         console.log(this.state.toggled)
-        this.getAlbums(0)
+        
     }
 
     getAlbums(pageNumber)
