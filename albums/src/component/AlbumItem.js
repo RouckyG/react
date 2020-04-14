@@ -7,7 +7,7 @@ export class AlbumItem extends React.Component {
         return (
                 <div className="album">
 
-                    <div>{this.props.data.nom}</div>
+                    <div className='titre'>{this.props.data.nom}</div>
                     <div>
                         <img alt="img_album" src={"https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/"+this.props.data.jaquette}></img>
                     </div>
