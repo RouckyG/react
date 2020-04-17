@@ -5,10 +5,9 @@ export class GenresFilters extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            isToggled: [],
+            //isToggled: [],
             genres:[],
         }
-        this.getGenre = this.getGenre.bind(this);
         this.onToggle = this.onToggle.bind(this)
     }
 
@@ -17,9 +16,15 @@ export class GenresFilters extends React.Component{
         fetch("https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/genres")
         .then((reponse) => reponse.json() )
         .then(json => {
-            this.setState({ genres:json, isToggled: new Array (json.length).fill(false)})
-            //console.log(this.state)
-        })
+            this.setState({ 
+                genres:json.reduce((reponse,genre)=>{
+                    reponse[genre.id] = {...genre, toggleOff:false};
+                    return reponse
+                }, []),
+                //isToggled: new Array (json.length).fill(false)
+               },
+                )
+        });
     }
 
     componentDidMount(){
@@ -29,23 +34,29 @@ export class GenresFilters extends React.Component{
 
     onToggle(id){
 
-        const Toggled = new Array(this.state.genres.length).fill(false);
+        //const genres = [...this.state.genres];
 
-        const isToggled = [...this.state.isToggled];
+        const genres = this.state.genres.concat();
 
-        isToggled[id] = !isToggled[id]
+        genres[id].toggleOff = !genres[id].toggleOff;
 
-        this.setState({ isToggled : isToggled})
-        
+        this.setState(
+            { genres : genres},
+            () => this.props.onChange( 
+                this.state.genres
+                    .filter( genre => !genre.toggleOff )
+                    .map( genre => genre.id )
+            )
+        );
     }
-
+/*
     componentDidUpdate(prevprops, prevstates){
         if(this.state.isToggled != prevstates.isToggled){
             console.log(this.state.isToggled)
             this.props.onChange(this.state.isToggled)
         }
     }
-
+*/
     render(){
 
 
@@ -53,7 +64,7 @@ export class GenresFilters extends React.Component{
         {this.state.genres.map((genre,i) =>
             <ToggleButton 
             key={i}
-            toggleOff ={this.state.isToggled[genre.id]}
+            toggleOff ={genre.toggleOff}
             id={genre.id}
             label={genre.nom} 
             onToggle={this.onToggle}

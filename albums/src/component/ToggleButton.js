@@ -3,11 +3,17 @@ import React from 'react';
 export function ToggleButton(props)
 { 
 
-    return <div onClick={props.onClick} className='toggleButton' onClick={() => props.onToggle(props.id)}>
-        <input type="checkbox" checked={props.toggleOff} />
-        <div>{props.label}</div>
+    return (
+        <label className='toggleButton' >
+            <input 
+                type="checkbox" 
+                checked={!props.toggleOff}
+                onChange={() => props.onToggle(props.id)}
+            />
+            {props.label}
 
-    </div>
+        </label>
+    )
 }
 
 export default ToggleButton;
