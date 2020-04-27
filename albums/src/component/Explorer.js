@@ -15,13 +15,13 @@ class Explorer extends React.Component {
         this.state = {
             albums: null,
             pager: {nombrePages : 99},
-            Sorts: {
+            sorts: {
                 "nom": true,
                 "année": true,
                 "genre":true,
                 "artiste": true,
             },
-            toggled: "",
+            toggled: " ",
             isAscending: true,
             selected: "nom",
         };
@@ -54,23 +54,33 @@ class Explorer extends React.Component {
         //console.log(genres)
         for (let i =0; i<genres.length; i++)
         {
-        if(genres[i]){
-            genresSelected += '&genres%5B%5D=' + i
+            genresSelected += '&genres[]=' + genres[i]
         }
-    }
+
         this.setState({toggled : genresSelected});
-        console.log(this.state.toggled)
         
     }
 
     getAlbums(pageNumber)
     {
-        fetch("https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/albums?critereTri=" +
-         encodeURI(this.state.selected) +"&triAscendant="+ this.state.isAscending +"&albumsParPage=10&page=" + pageNumber + this.state.toggled)
-        .then((reponse) => reponse.json() )
-        .then(json => {
-        this.setState({ albums:json.albums, pager:json.pagination })
-        });
+
+        if(this.state.toggled)
+        {
+            fetch(
+                "https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/albums?critereTri=" +
+                encodeURI(this.state.selected) +
+                "&triAscendant="+ this.state.isAscending +
+                "&albumsParPage=10&page=" + pageNumber +
+                this.state.toggled
+                )
+                .then((reponse) => reponse.json() )
+                .then(json => {
+                    this.setState({ albums:json.albums, pager:json.pagination })
+                });
+        }
+        else{
+            this.setState({albums : []})
+        }
     }
 
     onPageChange(pageNumber)
@@ -91,8 +101,11 @@ class Explorer extends React.Component {
                 <div className='main'>
                     <div className='content'>
                         <div className="sorting">
-                            <Sorting Sorts={this.state.Sorts} selected={this.state.selected} 
-                            isAscending={this.state.isAscending} onChange={this.onChange} />
+                            <Sorting 
+                            sorts={this.state.sorts} 
+                            selected={this.state.selected} 
+                            isAscending={this.state.isAscending} 
+                            onChange={this.onChange} />
                         </div>
                         <div className="albums">
                             <AlbumList albums={this.state.albums}/>
