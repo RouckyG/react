@@ -29,8 +29,6 @@ export class GenresFilters extends React.Component{
 
     onToggle(id){
 
-        const Toggled = new Array(this.state.genres.length).fill(false);
-
         const isToggled = [...this.state.isToggled];
 
         isToggled[id] = !isToggled[id]
