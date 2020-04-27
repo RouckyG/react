@@ -53,8 +53,7 @@ export class GenresFilters extends React.Component{
     changeAll(newValue){
         
         const genres = this.state.genres.concat();
-        console.log(this.state.genres);
-        console.log("2", genres)
+        
         genres.map((genre,i)=> genres[i].toggleOff = newValue)
 
         this.setState(

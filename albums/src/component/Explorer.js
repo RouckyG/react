@@ -58,7 +58,6 @@ class Explorer extends React.Component {
         }
 
         this.setState({toggled : genresSelected});
-        console.log(this.state.toggled)
         
     }
 
