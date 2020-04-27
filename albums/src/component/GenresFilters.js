@@ -49,6 +49,25 @@ export class GenresFilters extends React.Component{
             )
         );
     }
+
+    changeAll(newValue){
+        
+        const genres = this.state.genres.concat();
+        console.log(this.state.genres);
+        console.log("2", genres)
+        genres.map((genre,i)=> genres[i].toggleOff = newValue)
+
+        this.setState(
+            { genres : genres},
+            () => this.props.onChange( 
+                this.state.genres
+                    .filter( genre => !genre.toggleOff )
+                    .map( genre => genre.id )
+            )
+        );
+        
+       
+    }
 /*
     componentDidUpdate(prevprops, prevstates){
         if(this.state.isToggled != prevstates.isToggled){
@@ -61,6 +80,8 @@ export class GenresFilters extends React.Component{
 
 
         return (<>
+        <button onClick={()=>this.changeAll(false)}>tout cocher</button>
+        <button onClick={()=>this.changeAll(true)}>tout decocher</button>
         {this.state.genres.map((genre,i) =>
             <ToggleButton 
             key={i}
