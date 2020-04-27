@@ -5,7 +5,7 @@ export function TrackList(props){
 
     return (
         props.tracks.map(track => {
-            return <TrackItem track={track} key={track.id} />
+            return <TrackItem track={track} key={track.nom} />
         })
 
     );

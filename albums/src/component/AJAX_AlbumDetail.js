@@ -13,7 +13,7 @@ class AJAX_AlbumDetail extends React.Component {
     componentDidMount(){     
         fetch("https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/albums/"+this.props.id)
         .then((reponse) => reponse.json() )
-        .then(json => this.setState({album : json},console.log("a",json)))
+        .then(json => this.setState({album : json}))
     }
  
     render(){

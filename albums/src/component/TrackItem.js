@@ -2,7 +2,6 @@ import React from 'react';
 
 function TrackItem(props)
 {
-    console.log('b')
     return (
         <>
         <div>{props.track.disque}</div>

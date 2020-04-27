@@ -13,11 +13,10 @@ class AJAX_TrackList extends React.Component {
     componentDidMount(){     
         fetch("https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/albums/"+this.props.id+"/pistes")
         .then((reponse) => reponse.json() )
-        .then(json => this.setState({tracks : json},console.log("a",json)))
+        .then(json => this.setState({tracks : json}))
     }
  
     render(){
-        console.log("hello")
         const rendue = (
             <div>
                 <TrackList tracks={this.state.tracks}/>
