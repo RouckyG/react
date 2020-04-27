@@ -19,12 +19,12 @@ class AJAX_AlbumDetail extends React.Component {
     render(){
         console.log(this.state.album)
         const rendu = (
-<div>
+            <div>
                 <AlbumDetail album={this.state.album}/>
             </div>
         )
         return (
-            this.state.albums == null ? <div className="icone">a</div> : rendu
+            this.state.album === null ? <div className="icone">a</div> : rendu
         );
     }
 }
