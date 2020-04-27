@@ -34,13 +34,9 @@ export class GenresFilters extends React.Component{
 
     onToggle(id){
 
-<<<<<<< HEAD
-        const isToggled = [...this.state.isToggled];
-=======
         //const genres = [...this.state.genres];
 
         const genres = this.state.genres.concat();
->>>>>>> 82dcad54f7ad80f4d1bb37b138486585ab391484
 
         genres[id].toggleOff = !genres[id].toggleOff;
 
