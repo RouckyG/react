@@ -23,7 +23,7 @@ class AJAX_TrackList extends React.Component {
             </div>
         )
         return (
-            this.state.tracks === null ? <div className="icone">a</div> : rendue
+            this.state.tracks === null ? <div>chargement en cours</div> : rendue
         );
     }
 }

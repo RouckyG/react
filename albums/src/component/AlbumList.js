@@ -1,5 +1,5 @@
 import React from 'react';
-import AlbumsItem from './AlbumItem';
+import AlbumsItem from './Redirect_AlbumItem';
 
 export function AlbumList(props){
 

@@ -24,7 +24,7 @@ class AJAX_AlbumDetail extends React.Component {
             </div>
         )
         return (
-            this.state.album === null ? <div className="icone">a</div> : rendu
+            this.state.album === null ? <div>chargement en cours</div> : rendu
         );
     }
 }

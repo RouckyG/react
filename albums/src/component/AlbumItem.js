@@ -2,36 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-export class AlbumItem extends React.Component {
+function AlbumItem (props) {
 
-    render(){
-        return (
-                <div className="album">
-                    <Link to={"/album/"+this.props.data.id} >
-                        <div className='titre'>{this.props.data.nom}</div>
+    return (
+            <div className="album" onClick={() => props.onSelected() }>
+                    <div className='titre'>{props.data.nom}</div>
+                    <div>
+                        <img alt="img_album" src={"https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/"+props.data.jaquette}></img>
+                    </div>
+                    <div className="artiste">
                         <div>
-                            <img alt="img_album" src={"https://iut-info.univ-reims.fr/users/jonquet/albums/public/index.php/"+this.props.data.jaquette}></img>
+                            {props.data.artiste.nom}
                         </div>
-                        <div className="artiste">
-                            <div>
-                                {this.props.data.artiste.nom}
-                            </div>
 
-                            <div className="annee">
-                                {this.props.data.année}
-                            </div>
+                        <div className="annee">
+                            {props.data.année}
                         </div>
-                    </Link>
-                </div>
-        );
-    }
+                    </div>
+            </div>
+    );
 }
-
-//<AlbumsItem  className="albumList" album={albums[0]}/>
-
-
-AlbumItem.propTypes = {
-  data: PropTypes.object.isRequired,
-};
 
 export default AlbumItem;
